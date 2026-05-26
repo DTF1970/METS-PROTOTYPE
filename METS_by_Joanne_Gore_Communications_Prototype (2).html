@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>METS by Joanne Gore Communications — Prototype</title>
+  <style>
+    :root{
+      --bg:#f8fafc;--card:#ffffff;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--orange:#f97316;--orangeSoft:#fff7ed;--orangeLine:#fed7aa;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,Helvetica,sans-serif}
+    .wrap{max-width:1180px;margin:0 auto;padding:32px}
+    header{display:flex;justify-content:space-between;gap:24px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:32px}
+    .eyebrow{text-transform:uppercase;letter-spacing:.28em;font-size:12px;color:var(--muted)}
+    h1{font-size:64px;line-height:1;margin:12px 0 8px}
+    .subtitle{font-size:20px;color:#334155;max-width:760px}
+    .orange-dot{width:64px;height:64px;border-radius:999px;background:var(--orange);box-shadow:0 14px 28px #fed7aa}
+    .welcome{background:white;border:1px solid var(--line);border-radius:18px;padding:14px 18px;box-shadow:0 1px 8px rgba(15,23,42,.05)}
+    .welcome small{color:var(--muted)}
+    .head-right{display:flex;gap:14px;align-items:center}
+    .layout{display:grid;grid-template-columns:250px 1fr;gap:28px}
+    nav{display:flex;flex-direction:column;gap:10px}
+    nav button{border:1px solid var(--line);background:white;border-radius:16px;padding:13px 16px;text-align:left;font-weight:700;color:#334155;cursor:pointer}
+    nav button.active{background:#020617;color:white;border-color:#020617}
+    nav button:hover:not(.active){background:var(--orangeSoft);color:#9a3412}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:0 2px 12px rgba(15,23,42,.05)}
+    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .metric .value{font-size:42px;font-weight:900;margin-top:8px}
+    h2{font-size:30px;margin:0 0 10px}
+    h3{margin:0 0 8px}
+    p{line-height:1.65;color:#475569}
+    .pill{display:inline-block;background:var(--orangeSoft);border:1px solid var(--orangeLine);color:#c2410c;font-size:12px;font-weight:800;border-radius:999px;padding:6px 10px}
+    .playbook,.opp,.box{border:1px solid var(--line);border-radius:18px;padding:18px;background:white}
+    .playbook{cursor:pointer;text-align:left;width:100%}
+    .playbook.active,.opp.active{border-color:var(--orange);background:var(--orangeSoft)}
+    .muted{color:var(--muted);font-size:14px}
+    .space{display:flex;flex-direction:column;gap:18px}
+    .footer{border-top:1px solid var(--line);margin-top:34px;padding-top:18px;color:var(--muted);font-size:14px}
+    input,select{border:1px solid var(--line);border-radius:16px;padding:13px 14px;font-size:15px;width:100%}
+    .primary{border:0;background:#020617;color:white;border-radius:16px;padding:13px 16px;font-weight:800;cursor:pointer}
+    .primary:hover{background:var(--orange)}
+    .notice{margin-top:18px;background:var(--orangeSoft);border:1px solid var(--orangeLine);border-radius:18px;padding:16px;color:#9a3412}
+    .topline{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+    .section{display:none}
+    .section.active{display:block}
+    @media(max-width:850px){.layout,header{display:block}.grid4,.grid3,.grid2{grid-template-columns:1fr}nav{margin-bottom:24px}.head-right{margin-top:18px}h1{font-size:46px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="eyebrow">METS presented by Joanne Gore Communications</div>
+        <h1>METS</h1>
+        <div class="subtitle">METS by Joanne Gore Communications — Interactive executive prototype for Packaging + Labels. Prototype build v1.2.1</div>
+      </div>
+      <div class="head-right">
+        <div class="welcome"><small>Welcome</small><br><strong>Joanne</strong></div>
+        <div class="orange-dot"></div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <nav>
+        <button class="active" data-section="foreword">Foreword</button>
+        <button data-section="dashboard">Dashboard</button>
+        <button data-section="playbooks">Playbooks</button>
+        <button data-section="intake">Create New Opportunity</button>
+        <button data-section="opportunities">Opportunities</button>
+        <button data-section="licensing">Licensing</button>
+        <button data-section="advisory">Advisory</button>
+        <button data-section="founders">Founding Partners</button>
+      </nav>
+
+      <main>
+        <section id="foreword" class="section active">
+          <div class="card">
+            <div class="topline"><h2>Foreword for Joanne</h2><span class="pill">Executive Note</span></div>
+            <p>Joanne, this was built to create a sellable asset for Joanne Gore Communications — something shaped around your definition of JGC, your language, your market, and the way you already see the work. The goal is to show a model that could be refined and moved toward market as quickly as you feel makes sense.</p>
+            <p>The idea behind METS is simple: take the strategic intelligence that currently lives inside JGC and organize it into modular operating playbooks that companies can use, license, learn from, and build around. The platform is only the delivery wrapper. The real value is the methodology.</p>
+            <p>This prototype uses Packaging + Labels as the first example because it sits naturally inside JGC’s print-industry roots. It is not presented as a final answer. It is a working model built so you can react to something real, shape it, reject parts of it, improve it, or decide whether it deserves to move forward at all.</p>
+            <p>The goal is not to replace JGC’s consulting work. It is to create a line of business where JGC can continue offering its strategic advisory and agency services while building scalable intellectual property that supports recurring revenue, client enablement, and future growth.</p>
+            <p>Just as importantly, this was designed with a bigger personal vision in mind for you: creating freedom for you to pursue the visibility opportunities that already fit who you are — speaking, lecturing, teaching, thought leadership, and broader industry influence — while the methodology you built continues creating value.</p>
+          </div>
+        </section>
+
+        <section id="dashboard" class="section">
+          <div class="space">
+            <div class="grid4">
+              <div class="card metric"><div class="muted">Active Opportunities</div><div class="value">48</div></div>
+              <div class="card metric"><div class="muted">Qualification Queue</div><div class="value">12</div></div>
+              <div class="card metric"><div class="muted">Playbook Completion</div><div class="value">12.1%</div></div>
+              <div class="card metric"><div class="muted">Founding Partner Cohort</div><div class="value">8</div></div>
+            </div>
+            <div class="grid2">
+              <div class="card">
+                <div class="topline"><h2>Packaging + Labels Division</h2><span class="pill">Prototype v1.2.1</span></div>
+                <p>Joanne Gore Communications is an award-winning B2B marketing agency with deep roots in the print industry. METS transforms that methodology into scalable modular operating playbooks.</p>
+                <div id="dashboardPlaybooks" class="grid2"></div>
+              </div>
+              <div class="card">
+                <h2>Executive Snapshot</h2>
+                <p>A marketing operating system built from JGC methodology, commercialized for scalable licensing and advisory growth.</p>
+                <div class="space">
+                  <div class="box"><strong>Licensing Model</strong><div class="muted">Base access + expansion + advisory.</div></div>
+                  <div class="box"><strong>Founding Partner Pilot</strong><div class="muted">Warm-client validation pathway.</div></div>
+                  <div class="box"><strong>Support Ref</strong><div class="muted">#1121</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="grid2">
+              <div class="card">
+                <h2>Active Playbook Drilldown</h2>
+                <p id="activeTitle"></p>
+                <p id="activeDetail" class="muted"></p>
+                <div id="activeSteps" class="grid2"></div>
+              </div>
+              <div class="card">
+                <h2>Opportunity Preview</h2>
+                <div id="oppButtons" class="space"></div>
+                <div id="oppNote" class="notice"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="playbooks" class="section"><div id="playbookList" class="grid2"></div></section>
+
+        <section id="intake" class="section">
+          <div class="card">
+            <div class="topline"><div><h2>Create New Opportunity</h2><p class="muted">Demo intake workflow for routing a Packaging + Labels inquiry.</p></div><span class="pill">Intake Ref 1.21</span></div>
+            <div class="grid3">
+              <input id="companyInput" placeholder="Company name">
+              <select id="needSelect"><option>Lead generation</option><option>Messaging refinement</option><option>Quote follow-up</option><option>Client retention</option></select>
+              <button class="primary" onclick="routeOpportunity()">Route Opportunity</button>
+            </div>
+            <div id="routeNotice"></div>
+          </div>
+        </section>
+
+        <section id="opportunities" class="section">
+          <div class="card">
+            <h2>Opportunity Pipeline</h2>
+            <p>A simple demo pipeline showing how METS can organize demand, follow-up, and sales movement.</p>
+            <div id="oppCards" class="grid3"></div>
+          </div>
+        </section>
+
+        <section id="licensing" class="section">
+          <div class="grid4">
+            <div class="card"><h2>Founding Partner</h2><p>Pilot validation access, structured feedback, founding pricing pathway.</p></div>
+            <div class="card"><h2>Professional License</h2><p>Core playbooks, guided workflows, and ongoing platform access.</p></div>
+            <div class="card"><h2>Enterprise Expansion</h2><p>Multi-seat, multi-location, deeper governance, and custom rollout.</p></div>
+            <div class="card"><h2>Strategic Advisory</h2><p>Premium JGC support, review sessions, and methodology refinement.</p></div>
+          </div>
+        </section>
+
+        <section id="advisory" class="section">
+          <div class="card">
+            <h2>Strategic Advisory Layer</h2>
+            <p>METS is not positioned as generic software. It is Joanne Gore Communications methodology delivered through a scalable operating environment, with advisory access available when companies need deeper strategy.</p>
+            <div class="grid3">
+              <div class="box"><strong>Monthly Review</strong><p class="muted">Optional advisory checkpoints.</p></div>
+              <div class="box"><strong>Certification Path</strong><p class="muted">Future operator training upsell.</p></div>
+              <div class="box"><strong>AI Layer</strong><p class="muted">Future intelligent support roadmap.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="founders" class="section">
+          <div class="card">
+            <h2>Founding Partner Pilot</h2>
+            <p>A controlled early deployment path for selected current or former warm-market relationships. The goal is real-world usage, honest feedback, proof, and refinement before broader launch.</p>
+            <div class="grid3">
+              <div class="box"><strong>Use It</strong><p class="muted">Operate real workflows inside the Packaging + Labels playbooks.</p></div>
+              <div class="box"><strong>Stress Test It</strong><p class="muted">Find friction, missing steps, unclear language, and operational gaps.</p></div>
+              <div class="box"><strong>Validate It</strong><p class="muted">Convert learning into case studies, pricing logic, and launch readiness.</p></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="footer">METS by Joanne Gore Communications — Prototype reference JGC-121 · Support Ref #1121 · Built for strategic review only.</div>
+  </div>
+
+  <script>
+    const playbooks = [
+      {id:'intake',title:'Front-End Intake Playbook',subtitle:'Reception, qualification, routing, and decision-maker capture.',steps:['Reception Qualification','Decision-Maker Routing','Intake Standards','Escalation Logic'],detail:'Creates consistency at the first point of contact, so packaging and label opportunities do not get lost, underqualified, or mishandled before they reach the right person.'},
+      {id:'leadgen',title:'Lead Generation Playbook',subtitle:'Outbound acquisition framework for packaging and labels.',steps:['Prospect Targeting','Decision-Maker Capture','Follow-Up Sequences','Campaign Review'],detail:'Turns outbound growth into a repeatable structure: who to pursue, how to approach them, what to say, when to follow up, and when to escalate.'},
+      {id:'messaging',title:'Messaging + Positioning Playbook',subtitle:'Vertical messaging architecture and commercial positioning.',steps:['Value Proposition','Differentiation','Buyer Language','Proof Points'],detail:'Codifies the way a packaging or label company explains what makes it different, valuable, credible, and relevant to the buyers it wants most.'},
+      {id:'sales',title:'Sales Conversation Playbook',subtitle:'Discovery, objections, quote progression, and close paths.',steps:['Discovery Flow','Objection Handling','Quote Progression','Close Pathways'],detail:'Gives sales teams structured language for the conversations that determine whether an opportunity stalls, disappears, or moves forward.'},
+      {id:'retention',title:'Client Retention Playbook',subtitle:'Renewal logic, expansion opportunities, and relationship systems.',steps:['Renewal Cadence','Expansion Signals','Account Reviews','Recovery Path'],detail:'Helps businesses protect existing relationships, identify growth opportunities, and stay present before clients drift away.'},
+      {id:'growth',title:'Growth Expansion Playbook',subtitle:'Upsell frameworks and commercialization pathways.',steps:['Growth Audit','Offer Mapping','Expansion Campaigns','Revenue Review'],detail:'Connects marketing systems to commercial outcomes, giving leadership a clearer way to see where growth can actually come from.'}
+    ];
+    const opportunities = [
+      {id:'OPP-121',company:'Northline Packaging',stage:'Qualification',value:'$4,500/mo',note:'Needs structured lead handling and quote follow-up.'},
+      {id:'OPP-438',company:'BrightMark Labels',stage:'Strategy Review',value:'$6,200/mo',note:'Interested in licensing plus advisory access.'},
+      {id:'OPP-672',company:'Cedar Carton Co.',stage:'Proposal',value:'$8,100/mo',note:'Potential founding partner pilot candidate.'}
+    ];
+    let selectedPlaybook='leadgen', selectedOpp='OPP-121';
+    function showSection(id){
+      document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active', b.dataset.section===id));
+    }
+    document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>showSection(b.dataset.section));
+    function render(){
+      const dash = document.getElementById('dashboardPlaybooks');
+      dash.innerHTML = playbooks.map(p=>`<button class="playbook ${selectedPlaybook===p.id?'active':''}" onclick="selectedPlaybook='${p.id}';render()"><h3>${p.title}</h3><p class="muted">${p.subtitle}</p></button>`).join('');
+      const p = playbooks.find(x=>x.id===selectedPlaybook);
+      document.getElementById('activeTitle').textContent = p.title;
+      document.getElementById('activeDetail').textContent = p.detail;
+      document.getElementById('activeSteps').innerHTML = p.steps.map((s,i)=>`<div class="box"><div class="muted">Step ${i+1}</div><strong>${s}</strong></div>`).join('');
+      document.getElementById('oppButtons').innerHTML = opportunities.map(o=>`<button class="opp ${selectedOpp===o.id?'active':''}" onclick="selectedOpp='${o.id}';render()"><div style="display:flex;justify-content:space-between"><strong>${o.company}</strong><span class="muted">${o.id}</span></div><div class="muted">${o.stage} · ${o.value}</div></button>`).join('');
+      const o = opportunities.find(x=>x.id===selectedOpp);
+      document.getElementById('oppNote').textContent = o.note;
+      document.getElementById('playbookList').innerHTML = playbooks.map(p=>`<div class="card"><div class="topline"><h2>${p.title}</h2><span class="pill">PL-1.21</span></div><p>${p.subtitle}</p><p class="muted">${p.detail}</p>${p.steps.map(s=>`<div class="box">${s}</div>`).join('')}</div>`).join('');
+      document.getElementById('oppCards').innerHTML = opportunities.map(o=>`<div class="box"><div class="muted">${o.id}</div><h3>${o.company}</h3><p>${o.stage}</p><strong>${o.value}</strong><p class="muted">${o.note}</p></div>`).join('');
+    }
+    function routeOpportunity(){
+      const company = document.getElementById('companyInput').value || 'new company';
+      const need = document.getElementById('needSelect').value;
+      document.getElementById('routeNotice').innerHTML = `<div class="notice">Routed ${company} into the ${need} workflow. Recommended next playbook: Lead Generation + Sales Conversation.</div>`;
+    }
+    render();
+  </script>
+</body>
+</html>
